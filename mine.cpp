@@ -12,7 +12,13 @@ void baseBoard(int x, int y) {
     if (board[x][y].mine == false) {
         for (int xoff = -1; xoff <= 1; xoff++) {
              for (int yoff = -1; yoff <= 1; yoff++) {
-                 if(board[x + xoff][y + xoff].mine == false && x + xoff <= 8 && x + xoff >= 0 && y + yoff >= 0 && y + yoff <= 8 && board[x + xoff][y + xoff].revealed == false && board[x][y].otherMines == 0) {
+                 if(board[x + xoff][y + xoff].mine == false && 
+                 x + xoff <= 8 && 
+                 x + xoff >= 0 && 
+                 y + yoff >= 0 && 
+                 y + yoff <= 8 && 
+                 board[x + xoff][y + xoff].revealed == false && 
+                 board[x][y].otherMines == 0) {
                      board[x + xoff][y + xoff].revealed = true;
                      baseBoard(x + xoff, y + yoff);
                  }
@@ -50,7 +56,7 @@ void printBoard() {
             cout << board[x][y].symbol << " "; //space between each symbol
         }
     }
-    cout << "\n\n";
+    cout << "\n";
 }
 
 int main() {
@@ -80,19 +86,19 @@ int main() {
 // Select Coordinates
 //------------------------------
     while (true) {
-    int gX, gY, counter = 0;
+    int x_coord, y_coord, counter = 0;
     char mode;
-    cout << "\n\n\tColumn >> ";
-    cin >> gY;
     cout << "\n\n\tRow >> ";
-    cin >> gX;
+    cin >> x_coord;
+    cout << "\n\n\tColumn >> ";
+    cin >> y_coord;
     cout << "\n\n\tEnter to expose, P to Flag:\n\n";
     mode = getchar();
     mode = getchar();
         if (mode != 'P' && mode != 'p')  {
-           if (gX <= 9 && gX >= 1 && gY <= 9 && gY >= 1)  {
-    			if (board[gX-1][gY-1].mine == false) {
-    			 	board[gX-1][gY-1].revealed = true; //reveal surrounding mines
+           if (x_coord <= 9 && x_coord >= 1 && y_coord <= 9 && y_coord >= 1)  {
+    			if (board[x_coord - 1][y_coord - 1].mine == false) {
+    			 	board[x_coord - 1][y_coord - 1].revealed = true; //reveal surrounding mines
     			 	
     			 for (int i = 0; i <= 8; i++) {
     			 		 for (int j = 0; j <= 8; j++) {
@@ -100,7 +106,7 @@ int main() {
     			 		 	counter++;
     				 }
     			}
-    		if (counter == 81 - number_of_mines) {
+    		if (counter == 81 - number_of_mines) { // 9x9 board = 81 pieces
 				 printBoard();
 				 cout << "\n\n\tYOU WON!";
 				 cout << "\n\tPress ENTER to exit game....";
@@ -129,10 +135,10 @@ int main() {
     	}
     	
     	else if (mode == 'P' || mode =='p') {
-    	if (board[gX-1][gY-1].marked == true)
-    		board[gX-1][gY-1].marked = false;
+    	if (board[x_coord-1][y_coord-1].marked == true)
+    		board[x_coord-1][y_coord-1].marked = false;
     	else
-    		board[gX-1][gY-1].marked = true;
+    		board[x_coord-1][y_coord-1].marked = true;
 		}
 		printBoard();
   	}

@@ -10,8 +10,10 @@ Execute at CLI:
 _________________________
 
 To build the program: 
+	
 	$ make build
 	
 To run the program: 
+
 	$ ./minesweeper
 

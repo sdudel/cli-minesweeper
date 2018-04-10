@@ -6,12 +6,12 @@ POINTS:
 _________________________
 For every rule or rec from ARR and EXP that you include and document (external to the code) you get 20 points. Extra levels for (first click always blank) and the ability to flag mines.
 
-Execute:
+Execute at CLI:
 _________________________
 
 To build the program: 
-	make build
+	$ make build
 	
 To run the program: 
-	./minesweeper
+	$ ./minesweeper
 

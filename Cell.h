@@ -9,7 +9,7 @@ class Cell {
 			bool marked = false;
 			int otherMines = 0;
 			char symbol;
-			int update(int x, int y);
+			int update(int width, int height);
 			
 			protected:
 			

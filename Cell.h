@@ -1,5 +1,6 @@
 #ifndef CELL_H
 #define CELL_H
+#define newline '\n'
 
 class Cell {
 	public:
@@ -10,10 +11,7 @@ class Cell {
 			int otherMines = 0;
 			char symbol;
 			int update(int width, int height);
-			
 			protected:
-			
 			private:
 };
-
 #endif
